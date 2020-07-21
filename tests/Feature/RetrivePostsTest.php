@@ -14,6 +14,7 @@ class RetrivePostsTest extends TestCase
     public function test_can_user_retrive_posts()
     {
         $this->withoutExceptionHandling();
+
         $this->actingAs($user = factory(\App\User::class)->create(), 'api');
         $posts = factory(\App\Post::class,2)->create(['user_id' => $user->id]);
 
@@ -26,14 +27,17 @@ class RetrivePostsTest extends TestCase
                     'post_id' => $posts->last()->id,
                     'attributes' => [
                         'body' => $posts->last()->body,
+                        'image' => $posts->last()->image,
+                        'posted_at' => $posts->last()->created_at->diffForHumans(),
                     ]
                 ]],
-
                 ['data' => [
                     'type' => 'posts',
                     'post_id' => $posts->first()->id,
                     'attributes' => [
                         'body' => $posts->first()->body,
+                        'image' => $posts->first()->image,
+                        'posted_at' => $posts->first()->created_at->diffForHumans(),
                     ]
                 ]]
                 ],
