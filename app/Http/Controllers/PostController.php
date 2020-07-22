@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Http\Resources\Post as PostResource;
