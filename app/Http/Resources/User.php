@@ -22,7 +22,7 @@ class User extends JsonResource
                 'user_id' => $this->id,
                 'attributes' => [
                     'name' => $this->name,
-                    'friendship' => new FriendResource(Friend::friendship($this->id))
+                    'friendship' => new FriendResource(Friend::friendship($this->id)),
 
                 ]],
             'links' => [
