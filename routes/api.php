@@ -13,6 +13,8 @@ Route::middleware('auth:api')->group(function () {
         '/posts' => 'PostController',
         '/users' => 'UserController',
         '/users/{user}/posts' => 'UserPostController',
+        '/friend-request' => 'FriendRequestController',
+        '/friend-request-response' => 'FriendRequestResponseController',
 
         ]);
 
