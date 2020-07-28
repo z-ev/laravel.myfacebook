@@ -15,6 +15,7 @@
 <script>
     import Nav from './Nav';
     import Sidebar from './Sidebar';
+    import { mapGetters } from 'vuex';
 
     export default {
         name: "App",
@@ -22,7 +23,29 @@
         components: {
             Nav,
             Sidebar
-        }
+        },
+
+        mounted() {
+            this.$store.dispatch('fetchAuthUser');
+        },
+
+        watch: {
+            $route(to, from)
+            {
+                this.$store.dispatch('setPageTitle', to.meta.title);
+            }
+        },
+        created() {
+            this.$store.dispatch('setPageTitle', this.$route.meta.title)
+        },
+
+        computed: {
+            ...mapGetters({
+                authUser: 'authUser',
+            }),
+        },
+
+
     }
 </script>
 
