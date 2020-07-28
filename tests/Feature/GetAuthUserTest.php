@@ -15,7 +15,7 @@ class GetAuthUserTest extends TestCase
      *
      * @test
      */
-    public function test_auth_user_can_be_fatched()
+    public function test_auth_user_can_be_fetched()
     {
         $this->withoutExceptionHandling();
         $this->actingAs($user = factory(User::class)->create(), 'api');
