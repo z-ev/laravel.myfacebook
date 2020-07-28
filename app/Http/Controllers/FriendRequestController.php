@@ -15,14 +15,9 @@ class FriendRequestController extends Controller
 {
     public function store()
     {
-
-            $data = request()->validate([
-                'friend_id' => 'required',
-            ]);
-
-
-
-
+        $data = request()->validate([
+            'friend_id' => 'required',
+        ]);
 
         try {
             User::findOrFail($data['friend_id'])
