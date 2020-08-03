@@ -2128,6 +2128,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Post",
   props: ['post']
@@ -38542,7 +38544,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "overflow-x-hidden w-2/3" },
+                { staticClass: "overflow-x-hidden w-3/3" },
                 [_c("router-view", { key: _vm.$route.fullPath })],
                 1
               )
@@ -38691,7 +38693,7 @@ var render = function() {
                 staticClass: "w-8 h-8 object-cover rounded-full",
                 attrs: {
                   src:
-                    "authUser.data.attributes.profile_image.data.attributes.path",
+                    "https://cdn.pixabay.com/photo/2014/07/09/10/04/man-388104_960_720.jpg",
                   alt: "profile image for user"
                 }
               })
@@ -38954,7 +38956,11 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c("p", [_vm._v("Jane Smith and 137 others")])
+            _c("p", [
+              _vm._v(
+                _vm._s(_vm.post.data.attributes.likes.like_count) + " likes"
+              )
+            ])
           ]),
           _vm._v(" "),
           _vm._m(1)
@@ -38969,7 +38975,20 @@ var render = function() {
             "button",
             {
               staticClass:
-                "flex justify-center py-2 rounded-lg text-sm text-gray-700 w-full hover:bg-gray-200"
+                "flex justify-center py-2 rounded-lg text-sm w-full focus:outline-none",
+              class: [
+                _vm.post.data.attributes.likes.user_likes_post
+                  ? "bg-blue-600 text-white"
+                  : ""
+              ],
+              on: {
+                click: function($event) {
+                  return _vm.$store.dispatch("likePost", {
+                    postId: _vm.post.data.post_id,
+                    postKey: _vm.$vnode.key
+                  })
+                }
+              }
             },
             [
               _c(
