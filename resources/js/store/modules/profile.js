@@ -1,6 +1,7 @@
 const state = {
     user: null,
     userStatus: null,
+
 };
 
 const getters = {
