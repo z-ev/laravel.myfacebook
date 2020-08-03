@@ -3,7 +3,7 @@
 
 The project was created on the basis of the course "Facebook Clone with Laravel, TDD, Vue & Tailwind CSS" Course author: Victor Gonzalez on Udemy.com.
 
-![Иллюстрация к проекту](./public/files/img/screen1.png)
+![Иллюстрация к проекту](./public/files/img/screen2.png)
 
 
 
