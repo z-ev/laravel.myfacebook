@@ -4,13 +4,24 @@
 
         <div class="relative">
             <div class="w-100 h-64 overflow-hidden z-10">
-                <img src="https://ca-times.brightspotcdn.com/dims4/default/6da9bf3/2147483647/strip/true/crop/3000x1999+0+0/resize/840x560!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F7d%2F18%2F93bce8ae4efa8625f23ff7f87598%2Fla-photos-1staff-528802-me-macarthur-1-rcg.JPG" alt="user bg" class="object-cover w-full">
+                <UploadableImage image-width="1200"
+                                 image-height="500"
+                                 location="cover"
+                                 alt="user background image"
+                                 classes="object-cover w-full"
+                                 :user-image="user.data.attributes.cover_image"/>
+
+
             </div>
 
             <div class="absolute flex items-center bottom-0 left-0 -mb-8 ml-12 z-20">
                 <div class="w-32">
-                    <img src="https://ca-times.brightspotcdn.com/dims4/default/6da9bf3/2147483647/strip/true/crop/3000x1999+0+0/resize/840x560!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F7d%2F18%2F93bce8ae4efa8625f23ff7f87598%2Fla-photos-1staff-528802-me-macarthur-1-rcg.JPG" alt="user bg" class="object-cover w-32 h-32 border-4 border-gray-200 rounded-b-full shadow-lg">
-
+                    <UploadableImage image-width="750"
+                                     image-height="750"
+                                     location="profile"
+                                     alt="user profile image"
+                                     classes="object-cover w-32 h-32 border-4 border-gray-200 rounded-full shadow-lg bg-blue-400"
+                                     :user-image="user.data.attributes.profile_image"/>
                 </div>
                 <p class="text-2xl text-gray-100 ml-4">{{user.data.attributes.name}}</p>
 
@@ -47,12 +58,14 @@
 
 <script>
     import Post from '../../components/Post';
+    import UploadableImage from "../../components/UploadableImage";
     import { mapGetters } from 'vuex';
 
     export default {
         name: "Show",
         components: {
             Post,
+            UploadableImage,
         },
 
 
