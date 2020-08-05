@@ -35,22 +35,19 @@ class UserImagesTest extends TestCase
             'location' => 'cover',
         ])->assertStatus(201);
 
-
         Storage::disk('public')->assertExists('user-images/'.$file->hashName());
-
         $userImage = UserImage::first();
         $this->assertEquals('user-images/'.$file->hashName(), $userImage->path);
         $this->assertEquals('850', $userImage->width);
         $this->assertEquals('300', $userImage->height);
         $this->assertEquals('cover', $userImage->location);
         $this->assertEquals($user->id, $userImage->user_id);
-
         $response->assertJson([
             'data' => [
                 'type' => 'user-images',
                 'user_image_id' => $userImage->id,
                 'attributes' => [
-                    'path' => url($userImage->path),
+                    'path' => url('storage/'.$userImage->path),
                     'width' => $userImage->width,
                     'height' => $userImage->height,
                     'location' => $userImage->location,
@@ -91,14 +88,14 @@ class UserImagesTest extends TestCase
                     'cover_image' => [
                         'data' => [
                             'type' => 'user-images',
-                            'user_image_id' => 1,
+                            'user_image_id' => 2,
                             'attributes' => []
                         ],
                     ],
                     'profile_image' => [
                         'data' => [
                             'type' => 'user-images',
-                            'user_image_id' => 2,
+                            'user_image_id' => 3,
                             'attributes' => []
                         ],
                     ],
@@ -106,11 +103,5 @@ class UserImagesTest extends TestCase
             ],
         ]);
 
-        /*
-       */
-
-
-/*
-   */
     }
 }
