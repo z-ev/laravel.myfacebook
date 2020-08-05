@@ -1943,17 +1943,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     this.$store.dispatch('fetchAuthUser');
   },
-  watch: {
-    $route: function $route(to, from) {
-      this.$store.dispatch('setPageTitle', to.meta.title);
-    }
-  },
   created: function created() {
     this.$store.dispatch('setPageTitle', this.$route.meta.title);
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
     authUser: 'authUser'
-  }))
+  })),
+  watch: {
+    $route: function $route(to, from) {
+      this.$store.dispatch('setPageTitle', to.meta.title);
+    }
+  }
 });
 
 /***/ }),
@@ -2472,17 +2472,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Show",
+  data: {
+    posts: []
+  },
   components: {
     Post: _components_Post__WEBPACK_IMPORTED_MODULE_0__["default"],
     UploadableImage: _components_UploadableImage__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -42265,21 +42262,14 @@ var render = function() {
         [
           _c("Nav"),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "flex overflow-y-hidden flex-1" },
-            [
-              _c("Sidebar"),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "overflow-x-hidden w-3/3" },
-                [_c("router-view", { key: _vm.$route.fullPath })],
-                1
-              )
-            ],
-            1
-          )
+          _c("div", { staticClass: "flex overflow-y-hidden flex-1" }, [
+            _c(
+              "div",
+              { staticClass: "overflow-x-hidden w-auto" },
+              [_c("router-view", { key: _vm.$route.fullPath })],
+              1
+            )
+          ])
         ],
         1
       )
@@ -43076,7 +43066,7 @@ var render = function() {
         "div",
         { staticClass: "flex flex-col items-center" },
         [
-          _c("div", { staticClass: "relative" }, [
+          _c("div", { staticClass: "relative mb-8" }, [
             _c(
               "div",
               { staticClass: "w-100 h-64 overflow-hidden z-10" },
@@ -43113,7 +43103,7 @@ var render = function() {
                         location: "profile",
                         alt: "user profile image",
                         classes:
-                          "object-cover w-32 h-32 border-4 border-gray-200 rounded-full shadow-lg bg-blue-400",
+                          "object-cover w-32 h-32 border-4 border-gray-200 rounded-full shadow-lg",
                         "user-image": _vm.user.data.attributes.profile_image
                       }
                     })

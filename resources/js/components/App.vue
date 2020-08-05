@@ -3,9 +3,9 @@
         <Nav />
 
         <div class="flex overflow-y-hidden flex-1">
-            <Sidebar />
 
-            <div class="overflow-x-hidden w-3/3">
+
+            <div class="overflow-x-hidden w-auto">
                 <router-view :key="$route.fullPath"></router-view>
             </div>
         </div>
@@ -16,7 +16,6 @@
     import Nav from './Nav';
     import Sidebar from './Sidebar';
     import { mapGetters } from 'vuex';
-
 
     export default {
         name: "App",
@@ -30,14 +29,8 @@
             this.$store.dispatch('fetchAuthUser');
         },
 
-        watch: {
-            $route(to, from)
-            {
-                this.$store.dispatch('setPageTitle', to.meta.title);
-            }
-        },
         created() {
-            this.$store.dispatch('setPageTitle', this.$route.meta.title)
+            this.$store.dispatch('setPageTitle', this.$route.meta.title);
         },
 
         computed: {
@@ -46,7 +39,11 @@
             }),
         },
 
-
+        watch: {
+            $route(to, from) {
+                this.$store.dispatch('setPageTitle', to.meta.title);
+            }
+        }
     }
 </script>
 
