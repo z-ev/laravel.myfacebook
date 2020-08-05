@@ -5,26 +5,16 @@ namespace Tests\Feature;
 use App\Comment;
 use App\Post;
 use App\User;
-
-
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-
-
-
 
 class PostCommentsTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
+    use RefreshDatabase;
+
+    /** @test */
     public function test_user_can_comment_on_a_post()
     {
-        $this->withoutExceptionHandling();
-
         $this->actingAs($user = factory(User::class)->create(), 'api');
         $post = factory(Post::class)->create(['id' => 123]);
 
@@ -66,7 +56,6 @@ class PostCommentsTest extends TestCase
                 'self' => url('/posts'),
             ]
         ]);
-
     }
 
     /** @test */
@@ -107,7 +96,7 @@ class PostCommentsTest extends TestCase
                                         [
                                             'data' => [
                                                 'type' => 'comments',
-                                                'comment_id' => 1,
+                                                'comment_id' => 2,
                                                 'attributes' => [
                                                     'commented_by' => [
                                                         'data' => [
