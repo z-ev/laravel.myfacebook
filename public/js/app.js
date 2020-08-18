@@ -2009,6 +2009,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Nav",
@@ -42262,14 +42263,21 @@ var render = function() {
         [
           _c("Nav"),
           _vm._v(" "),
-          _c("div", { staticClass: "flex overflow-y-hidden flex-1" }, [
-            _c(
-              "div",
-              { staticClass: "overflow-x-hidden w-auto" },
-              [_c("router-view", { key: _vm.$route.fullPath })],
-              1
-            )
-          ])
+          _c(
+            "div",
+            { staticClass: "flex overflow-y-hidden flex-1" },
+            [
+              _c("Sidebar"),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "overflow-x-hidden w-3/4" },
+                [_c("router-view", { key: _vm.$route.fullPath })],
+                1
+              )
+            ],
+            1
+          )
         ],
         1
       )
@@ -42964,7 +42972,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "w-1/3 bg-white p-4 border-r border-gray-400" },
+      { staticClass: "w-1/4 bg-white p-4 border-r border-gray-400" },
       [
         _c("h2", { staticClass: "font-bold text-2xl tracking-tight" }, [
           _vm._v("Home")
@@ -43066,126 +43074,133 @@ var render = function() {
         "div",
         { staticClass: "flex flex-col items-center" },
         [
-          _c("div", { staticClass: "relative mb-8" }, [
-            _c(
-              "div",
-              { staticClass: "w-100 h-64 overflow-hidden z-10" },
-              [
-                _c("UploadableImage", {
-                  attrs: {
-                    "image-width": "1200",
-                    "image-height": "500",
-                    location: "cover",
-                    alt: "user background image",
-                    classes: "object-cover w-full",
-                    "user-image": _vm.user.data.attributes.cover_image
-                  }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "absolute flex items-center bottom-0 left-0 -mb-8 ml-12 z-20"
-              },
-              [
-                _c(
-                  "div",
-                  { staticClass: "w-32" },
-                  [
-                    _c("UploadableImage", {
-                      attrs: {
-                        "image-width": "750",
-                        "image-height": "750",
-                        location: "profile",
-                        alt: "user profile image",
-                        classes:
-                          "object-cover w-32 h-32 border-4 border-gray-200 rounded-full shadow-lg",
-                        "user-image": _vm.user.data.attributes.profile_image
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-2xl text-gray-100 ml-4" }, [
-                  _vm._v(_vm._s(_vm.user.data.attributes.name))
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "absolute flex items-center bottom-0 right-0 mb-4 mr-12 z-20"
-              },
-              [
-                _vm.friendButtonText && _vm.friendButtonText !== "Accept"
-                  ? _c(
-                      "button",
-                      {
-                        staticClass: "py-1 px-3 bg-gray-400 rounded",
-                        on: {
-                          click: function($event) {
-                            return _vm.$store.dispatch(
-                              "sendFriendRequest",
-                              _vm.$route.params.userId
-                            )
-                          }
+          _c(
+            "div",
+            {
+              staticClass: "relative mb-8 w-100",
+              staticStyle: { width: "100%" }
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "w-100 h-64 overflow-hidden z-10" },
+                [
+                  _c("UploadableImage", {
+                    attrs: {
+                      "image-width": "1200",
+                      "image-height": "500",
+                      location: "cover",
+                      alt: "user background image",
+                      classes: "object-cover w-full",
+                      "user-image": _vm.user.data.attributes.cover_image
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "absolute flex items-center bottom-0 left-0 -mb-8 ml-12 z-20"
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "w-32" },
+                    [
+                      _c("UploadableImage", {
+                        attrs: {
+                          "image-width": "750",
+                          "image-height": "750",
+                          location: "profile",
+                          alt: "user profile image",
+                          classes:
+                            "object-cover w-32 h-32 border-4 border-gray-200 rounded-full shadow-lg",
+                          "user-image": _vm.user.data.attributes.profile_image
                         }
-                      },
-                      [
-                        _vm._v(
-                          "\n                " +
-                            _vm._s(_vm.friendButtonText) +
-                            "\n            "
-                        )
-                      ]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.friendButtonText && _vm.friendButtonText === "Accept"
-                  ? _c(
-                      "button",
-                      {
-                        staticClass: "mr-2 py-1 px-3 bg-blue-500 rounded",
-                        on: {
-                          click: function($event) {
-                            return _vm.$store.dispatch(
-                              "acceptFriendRequest",
-                              _vm.$route.params.userId
-                            )
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "text-2xl text-gray-100 ml-4" }, [
+                    _vm._v(_vm._s(_vm.user.data.attributes.name))
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "absolute flex items-center bottom-0 right-0 mb-4 mr-12 z-20"
+                },
+                [
+                  _vm.friendButtonText && _vm.friendButtonText !== "Accept"
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "py-1 px-3 bg-gray-400 rounded",
+                          on: {
+                            click: function($event) {
+                              return _vm.$store.dispatch(
+                                "sendFriendRequest",
+                                _vm.$route.params.userId
+                              )
+                            }
                           }
-                        }
-                      },
-                      [_vm._v("\n                Accept\n            ")]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.friendButtonText && _vm.friendButtonText === "Accept"
-                  ? _c(
-                      "button",
-                      {
-                        staticClass: "py-1 px-3 bg-gray-400 rounded",
-                        on: {
-                          click: function($event) {
-                            return _vm.$store.dispatch(
-                              "ignoreFriendRequest",
-                              _vm.$route.params.userId
-                            )
+                        },
+                        [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(_vm.friendButtonText) +
+                              "\n            "
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.friendButtonText && _vm.friendButtonText === "Accept"
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "mr-2 py-1 px-3 bg-blue-500 rounded",
+                          on: {
+                            click: function($event) {
+                              return _vm.$store.dispatch(
+                                "acceptFriendRequest",
+                                _vm.$route.params.userId
+                              )
+                            }
                           }
-                        }
-                      },
-                      [_vm._v("\n                Ignore\n            ")]
-                    )
-                  : _vm._e()
-              ]
-            )
-          ]),
+                        },
+                        [_vm._v("\n                Accept\n            ")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.friendButtonText && _vm.friendButtonText === "Accept"
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "py-1 px-3 bg-gray-400 rounded",
+                          on: {
+                            click: function($event) {
+                              return _vm.$store.dispatch(
+                                "ignoreFriendRequest",
+                                _vm.$route.params.userId
+                              )
+                            }
+                          }
+                        },
+                        [_vm._v("\n                Ignore\n            ")]
+                      )
+                    : _vm._e()
+                ]
+              )
+            ]
+          ),
           _vm._v(" "),
           _vm.status.posts === "loading"
             ? _c("div", [_vm._v("Loading posts...")])
@@ -60701,8 +60716,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/api.ez/laravel.myfacebook/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/api.ez/laravel.myfacebook/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/learn-php.ez/php.tasks/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/learn-php.ez/php.tasks/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

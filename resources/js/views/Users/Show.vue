@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col items-center" v-if="status.user === 'success' && user">
-        <div class="relative mb-8">
+        <div class="relative mb-8 w-100" style="width: 100%;">
             <div class="w-100 h-64 overflow-hidden z-10">
                 <UploadableImage image-width="1200"
                                  image-height="500"
