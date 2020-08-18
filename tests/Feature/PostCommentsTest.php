@@ -96,7 +96,7 @@ class PostCommentsTest extends TestCase
                                         [
                                             'data' => [
                                                 'type' => 'comments',
-                                                'comment_id' => 2,
+                                                'comment_id' => 1,
                                                 'attributes' => [
                                                     'commented_by' => [
                                                         'data' => [

@@ -32,7 +32,7 @@ class LikesTest extends TestCase
                 [
                     'data' => [
                         'type' => 'likes',
-                        'like_id' => 24,
+                        'like_id' => 1,
                         'attributes' => []
                     ],
                     'links' => [
@@ -67,7 +67,7 @@ class LikesTest extends TestCase
                                         [
                                             'data' => [
                                                 'type' => 'likes',
-                                                'like_id' => 26,
+                                                'like_id' => 1,
                                                 'attributes' => []
                                             ]
                                         ]
