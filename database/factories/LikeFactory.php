@@ -2,14 +2,15 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Post;
+use App\Model;
 use App\User;
+use App\Post;
+use App\Like;
 use Faker\Generator as Faker;
 
-$factory->define(Post::class, function (Faker $faker) {
+$factory->define(Like::class, function (Faker $faker) {
     return [
         'user_id' => User::all()->random()->id,
-        'body' => $faker->sentence,
-        'image' => $faker->imageUrl(),
+        'post_id' => Post::all()->random()->id,
     ];
 });

@@ -2,20 +2,17 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use App\Friend;
-
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class RetrivePostsTest extends TestCase
+class RetrievePostsTest extends TestCase
 {
+    use RefreshDatabase;
 
     /** @test */
-    public function test_can_user_retrive_posts()
+    public function test_user_can_retrieve_posts()
     {
-        $this->withoutExceptionHandling();
-
         $this->actingAs($user = factory(\App\User::class)->create(), 'api');
         $anotherUser = factory(\App\User::class)->create();
         $posts = factory(\App\Post::class, 2)->create(['user_id' => $anotherUser->id]);
@@ -58,26 +55,22 @@ class RetrivePostsTest extends TestCase
                     'self' => url('/posts'),
                 ]
             ]);
-
     }
+
     /** @test */
-    public function test_user_can_only_retrieve_their_osts()
+    public function test_user_can_only_retrieve_their_posts()
     {
-        $this->withoutExceptionHandling();
         $this->actingAs($user = factory(\App\User::class)->create(), 'api');
         $posts = factory(\App\Post::class)->create();
 
         $response = $this->get('/api/posts');
+
         $response->assertStatus(200)
             ->assertExactJson([
-                'data' => [
-
-
-                ],
+                'data' => [],
                 'links' => [
                     'self' => url('/posts'),
                 ]
             ]);
     }
-
 }
